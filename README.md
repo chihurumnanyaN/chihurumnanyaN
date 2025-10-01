@@ -1,12 +1,31 @@
-- 👋 Hi, I’m @chihurumnanyaN
-- 👀 I’m interested in creativity and curiosity 
-- 🌱 I’m currently learning web development
-- 💞️ I’m looking to collaborate on numerous impactful projects 
-- 📫 How to reach me : chihurumnanya15@gmail.com
-- 😄 Pronouns: a responsible he
-- ⚡ Fun fact: aside programming i love peaceful personalities 
+# 👋 Hey there, I’m Chihurumnanya  
 
-<!---
-chihurumnanyaN/chihurumnanyaN is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+💡 A curious and creative mind passionate about building impactful digital experiences.  
+
+---
+
+### 👀 Interests  
+- Creativity & curiosity-driven problem solving  
+- Exploring new ideas and technologies  
+- Collaborating on projects that make a real difference  
+
+### 🌱 Currently Learning  
+- Web development (frontend & backend)  
+- Modern frameworks and clean coding practices  
+
+### 🤝 Open to Collaborate On  
+- Innovative projects with social or creative impact  
+- Startups, collaborations, and open-source contributions  
+
+### 📫 Reach Me  
+- Email: **chihurumnanya15@gmail.com**  
+
+### 😄 Pronouns  
+- He / Him (responsible he ✨)  
+
+### ⚡ Fun Fact  
+Outside of programming, I truly value and enjoy the company of peaceful, positive-minded individuals.  
+
+---
+
+⭐️ *“Code is just another form of creativity — and I’m here to create meaningfully.”*  
