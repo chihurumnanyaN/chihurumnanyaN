@@ -1,4 +1,4 @@
-# 👋 Hey there, I’m Chihurumnanya  
+# 👋 Hey there, I’m Chihurumnanya (𝗕𝗶𝗴 𝗖 👽)
 
 💡 A curious and creative mind passionate about building impactful digital experiences.  
 
