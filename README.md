@@ -14,7 +14,7 @@
 - Modern frameworks and clean coding practices  
 
 ### 🤝 Open to Collaborate On  
-- Innovative projects with social or creative impact  
+- Innovative projects with social or creative lasting impact  
 - Startups, collaborations, and open-source contributions  
 
 ### 📫 Reach Me  
