@@ -21,7 +21,7 @@
 - Email: **chihurumnanya15@gmail.com**  
 
 ### 😄 Pronouns  
-- He / Him (responsible he ✨)  
+- He / Him (he ✨)  
 
 ### ⚡ Fun Fact  
 Outside of programming, I truly value and enjoy the company of peaceful, positive-minded individuals.  
