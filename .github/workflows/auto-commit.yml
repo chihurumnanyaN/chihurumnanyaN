@@ -1,0 +1,69 @@
+name: Auto Commit
+
+on:
+  schedule:
+    # Runs at multiple times throughout the day — only one will actually commit
+    # This simulates a natural, varied activity pattern
+    - cron: '17 9 * * *'
+    - cron: '43 14 * * *'
+    - cron: '05 18 * * *'
+    - cron: '52 21 * * *'
+  workflow_dispatch:
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Randomly decide whether to commit
+        id: should_commit
+        run: |
+          # ~75% chance of committing on any given trigger
+          ROLL=$((RANDOM % 4))
+          if [ "$ROLL" -eq 0 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "Skipping this run to simulate a natural pattern."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Pick a random commit message
+        if: steps.should_commit.outputs.skip == 'false'
+        id: commit_msg
+        run: |
+          MESSAGES=(
+            "docs: update notes"
+            "chore: minor cleanup"
+            "refactor: tidy up structure"
+            "fix: small correction"
+            "style: formatting tweak"
+            "docs: revise readme section"
+            "chore: housekeeping"
+            "update: daily progress"
+            "refactor: improve readability"
+            "fix: resolve inconsistency"
+            "chore: sync updates"
+            "docs: add reference note"
+          )
+          RANDOM_INDEX=$((RANDOM % ${#MESSAGES[@]}))
+          SELECTED="${MESSAGES[$RANDOM_INDEX]}"
+          echo "message=$SELECTED" >> $GITHUB_OUTPUT
+          echo "Selected message: $SELECTED"
+
+      - name: Make changes
+        if: steps.should_commit.outputs.skip == 'false'
+        run: |
+          # Append a subtle timestamped entry to the log
+          echo "[$(date '+%Y-%m-%d %H:%M:%S')] update" >> log.txt
+
+      - name: Commit and Push
+        if: steps.should_commit.outputs.skip == 'false'
+        run: |
+          git config --global user.name "chihurumnanyaN"
+          git config --global user.email "chihurumnanya15@gmail.com"
+          git add log.txt
+          git commit -m "${{ steps.commit_msg.outputs.message }}"
+          git push
