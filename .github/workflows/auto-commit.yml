@@ -15,10 +15,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check if scheduler is enabled
+        id: check_enabled
+        run: |
+          # Boolean flag — set to 'true' to enable the scheduler, 'false' to disable it
+          ENABLED=false
+
+          if [ "$ENABLED" = "false" ]; then
+            echo "enabled=false" >> $GITHUB_OUTPUT
+            echo "Scheduler is disabled. Exiting early."
+          else
+            echo "enabled=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Checkout repository
+        if: steps.check_enabled.outputs.enabled == 'true'
         uses: actions/checkout@v4
 
       - name: Randomly decide whether to commit
+        if: steps.check_enabled.outputs.enabled == 'true'
         id: should_commit
         run: |
           # ~75% chance of committing on any given trigger
@@ -31,7 +46,7 @@ jobs:
           fi
 
       - name: Pick a random commit message
-        if: steps.should_commit.outputs.skip == 'false'
+        if: steps.check_enabled.outputs.enabled == 'true' && steps.should_commit.outputs.skip == 'false'
         id: commit_msg
         run: |
           MESSAGES=(
@@ -54,13 +69,13 @@ jobs:
           echo "Selected message: $SELECTED"
 
       - name: Make changes
-        if: steps.should_commit.outputs.skip == 'false'
+        if: steps.check_enabled.outputs.enabled == 'true' && steps.should_commit.outputs.skip == 'false'
         run: |
           # Append a subtle timestamped entry to the log
           echo "[$(date '+%Y-%m-%d %H:%M:%S')] update" >> log.txt
 
       - name: Commit and Push
-        if: steps.should_commit.outputs.skip == 'false'
+        if: steps.check_enabled.outputs.enabled == 'true' && steps.should_commit.outputs.skip == 'false'
         run: |
           git config --global user.name "chihurumnanyaN"
           git config --global user.email "chihurumnanya15@gmail.com"
